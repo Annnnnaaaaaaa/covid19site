@@ -1,0 +1,513 @@
+:root {
+    /* Базові розміри тексту */
+    --main-text-size: 1.8rem;      /* Основний розмір шрифту */
+    --theme-text-size: 3.2rem;     /* Розмір шрифту для заголовків теми */
+    
+    /* Базові відступи у відсотках для позиціонування елементів */
+    --title-offset: 9%;            /* Відступ для заголовку */
+    --theme-offset: 37%;           /* Відступ для теми */
+    --author-offset: 72%;          /* Відступ для автора */
+    --footer-offset: 85%;          /* Відступ для футера */
+    --author-left: 63%;            /* Лівий відступ для автора */
+    --footer-left: 20%;            /* Лівий відступ для футера */
+    --arrow-left: 90%;             /* Лівий відступ для стрілки */
+    --arrow-offset: 80%;           /* Відступ для стрілки */
+}
+
+/* Стиль для заголовку */
+.title {
+    position: absolute;
+    top: var(--title-offset);
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    width: auto;
+    min-width: max-content;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.title .header {
+    font-size: calc(var(--main-text-size) * var(--content-scale)); /* Динамічний розмір шрифту */
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Стиль для теми */
+.theme {
+    position: absolute;
+    top: var(--theme-offset);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme h2 {
+    font-size: calc(var(--theme-text-size) * var(--content-scale)); /* Динамічний розмір шрифту */
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    width: auto;
+    text-align: center;
+}
+
+.theme h2:first-child {
+    margin-bottom: 1rem;
+}
+
+/* Стиль для інформації про автора */
+.author {
+    position: absolute;
+    top: var(--author-offset);
+    left: var(--author-left);
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    width: auto;
+    min-width: max-content;
+}
+
+.author p {
+    font-size: calc(var(--main-text-size) * var(--content-scale)); /* Динамічний розмір шрифту */
+    text-align: right;
+    line-height: 1.6;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Стиль для футера */
+.footer {
+    position: absolute;
+    bottom: calc(100% - var(--footer-offset));
+    left: var(--footer-left);
+    transform-origin: left center;
+    transform: translate(0, 50%);
+}
+
+.footer p {
+    font-size: calc(var(--main-text-size) * var(--content-scale)); /* Динамічний розмір шрифту */
+    font-weight: normal;
+    margin: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Стиль для іконки стрілки */
+.arrow-icon {
+    position: absolute;
+    bottom: calc(100% - var(--arrow-offset));
+    left: var(--arrow-left);
+    transform-origin: center;
+    transform: translate(-50%, 50%) scale(var(--content-scale)); /* Масштабування */
+    width: 90px;
+    height: 90px;
+    background-image: url('pictures/arrow.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.arrow-icon:hover {
+    transform: translate(-50%, 50%) scale(calc(var(--content-scale) * 1.1)); /* Збільшення при hover */
+}
+
+/* Медіа-запити для адаптивності на різних екранах */
+@media screen and (max-height: 800px) {
+    :root {
+        --theme-text-size: 2.8rem; /* Зменшення розміру шрифту */
+    }
+}
+
+/* Стиль верхнього панелі навігації */
+.header-bar {
+    width: 100%;
+    height: 75px;
+    background: #d3d3d3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    filter: blur(10px);
+    transition: none;
+}
+
+/* Стилі заголовку */
+.header {
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+    font-weight: normal;
+    line-height: 1.4;
+    margin-bottom: calc(3 * var(--vh));
+}
+
+/* Базові стилі тіла сторінки */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Стилі логотипу в шапці */
+.header-bar .logo {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-bar .logo:hover {
+    transform: scale(1.1);
+}
+
+/* Контроль розміру тексту */
+.header-bar .text-size-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    left: 90px;
+}
+
+.text-size-controls .text-icon {
+    height: 40px;
+    width: 40px;
+    background-image: url('pictures/icon-text.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Кнопки збільшення/зменшення тексту */
+.text-size-controls button {
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-size-controls button.icon-plus {
+    background-image: url('pictures/icon-plus.png');
+}
+
+.text-size-controls button.icon-minus {
+    background-image: url('pictures/icon-minus.png');
+}
+
+.text-size-controls button:hover {
+    transform: scale(1.1);
+}
+
+/* Права секція шапки */
+.header-bar .right-section {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-right: 20px;
+}
+
+/* Іконки в шапці */
+.header-bar .icon {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Стиль пошукового поля */
+.header-bar .search-box input {
+    width: 400px;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.header-bar .search-box input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Стилі головного меню */
+.menu {
+    background: linear-gradient(45deg, #cd9eff, #9dc1ff, #9effb7);
+    color: black;
+    width: 80vw;
+    height: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease-in-out;
+    z-index: 40;
+    padding: calc(6 * var(--vh));
+    box-sizing: border-box;
+    filter: none;
+    pointer-events: auto;
+}
+
+/* Контент меню */
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Розміри тексту для титульної сторінки */
+.menu-content.initial .header,
+.menu-content.initial .author p,
+.menu-content.initial .footer p {
+    font-size: var(--title-font-size);
+}
+
+.menu-content.initial .theme h2 {
+    font-size: 3.2rem; /* Зменшений розмір */
+}
+
+/* Розміри тексту меню після анімації */
+.menu-content.text-top {
+    padding-top: 20px;
+}
+
+.menu-content.text-top .menu-links a {
+    font-size: 1rem;
+    transition: font-size 0.5s ease-in-out;
+}
+
+.menu-content h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.menu-content p {
+    font-size: 1.4rem;
+    margin: 0;
+    margin-top: 30px;
+}
+
+/* Лівостороннє меню */
+.menu.menu-left {
+    width: clamp(300px, 30vw, 450px);
+    height: calc(100vh - 75px);
+    top: 75px;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    z-index: 15;
+}
+
+/* Стилі скролбару */
+.menu.menu-left::-webkit-scrollbar,
+#mainContent::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu.menu-left::-webkit-scrollbar-track,
+#mainContent::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.menu.menu-left::-webkit-scrollbar-thumb,
+#mainContent::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.menu.menu-left::-webkit-scrollbar-thumb:hover,
+#mainContent::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Затухання меню */
+.menu-content.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Список посилань меню */
+.menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu-links li {
+    margin: 15px 0;
+    position: relative;
+    padding-bottom: 15px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+/* Роздільна лінія між елементами меню */
+.menu-links li:not(:last-child)::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Активне посилання */
+.menu-links a.active {
+    font-weight: 700;
+}
+
+/* Стилі посилань меню */
+.menu-links a {
+    color: black;
+    text-decoration: none;
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    line-height: 1.4;
+    transition: color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+}
+
+/* Верхнє положення тексту меню */
+.menu-content.text-top {
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Основний контент */
+#mainContent {
+    position: absolute;
+    top: 75px;
+    left: clamp(300px, 30vw, 450px);
+    width: calc(100vw - clamp(300px, 30vw, 450px));
+    height: calc(100vh - 75px);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    padding: 20px 40px;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    pointer-events: auto;
+    overflow-y: scroll;
+    filter: blur(10px);
+}
+
+#mainContent.active {
+    opacity: 1;
+    height: calc(100vh - 75px);
+    pointer-events: auto;
+}
+
+/* Заголовки в контенті */
+.content h2 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    margin-bottom: calc(2 * var(--vh));
+}
+
+/* Параграфи в контенті */
+.content p {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    line-height: 1.6;
+}
+
+/* Блок пошуку */
+.search-box {
+    position: relative;
+}
+
+/* Результати пошуку */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 50;
+    margin-top: 5px;
+}
+
+.search-results.active {
+    display: block;
+}
+
+/* Елементи результатів пошуку */
+.search-results div {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-results div:hover {
+    background: #f0f0f0;
+}

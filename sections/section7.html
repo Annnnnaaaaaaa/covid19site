@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розділ 1: Загальна інформація</title>
+
+    <style>
+        /* Задаємо стилі для body та html */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Стилі для main */
+        main {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Загальні стилі для всіх елементів */
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        h2 {
+            margin-top: 1em;
+            margin-bottom: 3em; 
+        }
+
+        /* Встановлення властивостей для виправлення ширини */
+        body, main {
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        p:first-of-type {
+            margin-top: 3em;
+            line-height: 1.5;
+        }
+        
+        /* Контейнер для двох колонок */
+        .container {
+            display: flex;
+            width: 100%;
+            height: auto;
+            padding: 0;  /* Прибрали padding */
+            gap: 20px;
+            overflow-x: auto;
+            margin: 3em 0;  /* Збільшили margin для однакової відстані */
+        }
+
+        /* Ліва частина */
+        .left {
+            flex: 1;
+            max-width: 50%;
+            padding: 0; /* Прибрали padding */
+        }
+
+        .left img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .left p {
+            margin-top: 20px;
+            margin-bottom: 10px; /* Було 30px, зменшено на 20px */
+            text-align: center;
+        }
+
+        /* Права частина */
+        .right {
+            flex: 1;
+            max-width: 50%;
+            text-align: justify;
+            padding: 0; /* Прибрали padding */
+        }
+
+        .right p {
+            margin-top: 0;
+        }
+
+        /* Стилі для списку */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Стилі для посилань */
+        .ref-link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .ref-link:hover {
+            text-decoration: underline;
+        }
+
+        .ref-link:visited {
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <h2 style="text-align: center;"><strong>Рекомендації щодо захисту та профілактики від COVID-19. Що можна зробити особисто, щоб захиститись від COVID-19</strong></h2>
+<p>Правила профілактики від COVID-19 доволі прості, передусім &ndash; це вакцинація, якщо ви не маєте ніяких протипоказань. Також ефективними є такі правила:</p>
+<ul>
+<li>Тримайтеся подалі від інших людей, якщо ви захворіли або одягайте одноразову медичну маску</li>
+<li>Дотримуйтесь дистанції</li>
+<li>Зупинити поширення вірусів можливо, якщо виконувати кашльовий етикет</li>
+<li>Мийте руки</li>
+<li>Очищуйте поверхні та предмети, до яких часто торкаєтеся</li>
+<li>Будьте готові та поінформовані<a href="https://kyivcity.gov.ua/oholoshennia/koronavirus_profilaktika_infikuvannya_i_poshirennya/" class="ref-link"><sup>[11]</sup></a></li>
+</ul>
+
+<p>&nbsp;</p>
+<div style="text-align: center;">
+    <img src="pictures/7_1.png" alt="Штами коронавірусу" style="width: 90%; margin-bottom: 5px;">
+    <p style="margin-top: 5px;"><em>&nbsp;Картинка, що демонструє рекомендації профілактики від COVID-19<a href="https://phc.org.ua/kontrol-zakhvoryuvan/inshi-infekciyni-zakhvoryuvannya/koronavirusna-infekciya-covid-19" class="ref-link"><sup>[23]</sup></a></em></p>
+</div>
+
+<p>&nbsp;</p>
+
+<div style="text-align: center;">
+    <img src="pictures/7_2.png" alt="Штами коронавірусу" style="width: 90%; margin-bottom: 5px;">
+    <p style="margin-top: 5px;"><em>&nbsp;Картинка, що демонструє рекомендації профілактики від COVID-19<a href="https://redcross.org.ua/covid19/" class="ref-link"><sup>[24]</sup></a></em></p>
+</div>
+<p>&nbsp;</p>
+
+<p>Також доступні та доказові рекомендації профілактики від COVID-19 і іншу важливу інформацію щодо захворювання містять наступні відеоролики:</p>
+<div style="display: flex; justify-content: space-around; gap: 20px; width: 100%;">
+    <iframe style="width: 23%; aspect-ratio: 16 / 9; border-radius: 15px; overflow: hidden;" 
+        src="https://www.youtube.com/embed/Ux_cr0xEQig" frameborder="0" allowfullscreen></iframe>
+    <iframe style="width: 23%; aspect-ratio: 16 / 9; border-radius: 15px; overflow: hidden;" 
+        src="https://www.youtube.com/embed/DA3r1yNqG_Y" frameborder="0" allowfullscreen></iframe>
+    <iframe style="width: 23%; aspect-ratio: 16 / 9; border-radius: 15px; overflow: hidden;" 
+        src="https://www.youtube.com/embed/lMI0zqFW6rQ" frameborder="0" allowfullscreen></iframe>
+    <iframe style="width: 23%; aspect-ratio: 16 / 9; border-radius: 15px; overflow: hidden;" 
+        src="https://www.youtube.com/embed/00Ikdh8pP4w" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

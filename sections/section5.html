@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розділ 1: Загальна інформація</title>
+
+    <style>
+        /* Задаємо стилі для body та html */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Стилі для main */
+        main {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Загальні стилі для всіх елементів */
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        h2 {
+            margin-top: 1em;
+            margin-bottom: 3em; 
+        }
+
+        /* Встановлення властивостей для виправлення ширини */
+        body, main {
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        p:first-of-type {
+            margin-top: 3em;
+            line-height: 1.5;
+        }
+        
+        /* Контейнер для двох колонок */
+        .container {
+            display: flex;
+            width: 100%;
+            height: auto;
+            padding: 0;
+            gap: 20px;
+            overflow-x: hidden;
+            margin: 3em 0;
+            align-items: flex-start; /* Додано для вирівнювання по верхньому краю */
+        }
+
+        /* Ліва частина */
+        .left {
+            flex: 0 0 auto;
+            width: 300px; /* !!!!!!! */
+            padding: 0;
+        }
+
+        .left img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .left p {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Права частина */
+        .right {
+            flex: 1;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: justify;
+            margin-top: 0; /* Додано для видалення верхнього відступу */
+        }
+
+        .right h3 {
+            margin-top: 0; /* Додано для видалення верхнього відступу у заголовка */
+            margin-bottom: 1em;
+        }
+
+        .right p {
+            margin-top: 0;
+        }
+
+        /* Стилі для списку */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Стилі для посилань */
+        .ref-link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .ref-link:hover {
+            text-decoration: underline;
+        }
+
+        .ref-link:visited {
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <h2 style="text-align: center;"><strong>Смертність від COVID-19 в Україні та світі</strong></h2>
+<p>За найоптимальнішими оцінками, пандемія COVID-19, яка почала поширюватися світом у 2020 році, спричинила близько 27 мільйонів смертей до серпня 2024 року. Вона спричинила горе та страждання через втрачені життя, створила величезний тиск на лікарів та медсестер, а також продовжує руйнувати суспільства, економіку та життя.<a href="https://ourworldindata.org/key-charts-understand-covid-pandemic" class="ref-link"><sup>[10]</sup></a></p>
+<p>Країни запровадили низку заходів для уповільнення поширення хвороби - від тестування та відстеження контактів до соціального дистанціювання та вакцинації. Глобальна реакція була повільною та нерівномірною, зі значними розбіжностями в охороні здоров&rsquo;я та вакцинації в усьому світі.<a href="https://ourworldindata.org/key-charts-understand-covid-pandemic" class="ref-link"><sup>[10]</sup></a></p>
+
+<div style="text-align: center;">
+    <img src="pictures/5_1.png" alt="Штами коронавірусу" style="width: 70%; margin-bottom: 5px;">
+    <p style="margin-top: 5px;"><em>Сукупна кількість підтверджених випадків COVID-19 на мільйон людей, 29 грудня 2024 р<a href="https://ourworldindata.org/explorers/covid?tab=map&time=latest&country=~OWID_WRL&Metric=Confirmed+cases&Interval=Cumulative&Relative+to+population=true" class="ref-link"><sup>[21]</sup></a></em></p>
+</div>
+<p>&nbsp;</p>
+
+
+<div style="text-align: center;">
+    <img src="pictures/5_2.png" alt="Штами коронавірусу" style="width: 70%; margin-bottom: 5px;">
+    <p style="margin-top: 5px;"><em>&nbsp;Зараження коронавірусом по різних країнах на 13.04.2024<a href="https://index.minfin.com.ua/ua/reference/coronavirus/geography/" class="ref-link"><sup>[22]</sup></a></em></p>
+</div>
+<p>&nbsp;</p>
+
+
+<p>1 березня 2020 року у Чернівцях було зафіксовано перший в Україні випадок коронавірусу, з того часу хвороба не залишила країну.<a href="https://www.pravda.com.ua/news/2020/03/3/7242332/" class="ref-link"><sup>[18]</sup></a> Україна дуже сильно постраждала від пандемії, а боротьба з нею ускладнювалася малою кількістю бюджетних коштів, що були направлені на боротьбу з коронавірусом, недостатньою кількістю тестів та слабкістю системи охорони здоров&rsquo;я. Всього на 13.04.2024 в Україні було зафіксовано 5 557&nbsp;995 випадків коронавірусу (13,5 % від усього населення), 112 418 людей загинуло від цієї хвороби або її наслідків <a href="https://www.worldometers.info/coronavirus/country/ukraine/" class="ref-link"><sup>[19]</sup></a><sup>,</sup><a href="https://index.minfin.com.ua/ua/reference/coronavirus/ukraine/" class="ref-link"><sup>[20]</sup></a>.</p>
+<p>Як і в багатьох інших країнах, пандемія коронавірусу в Україні розвивалась хвилями, кожна з яких мала свої особливості. Хвилі пов&rsquo;язувалися з періодами запровадження локдаунів, відступу захворювання та появою нових, більш агресивних штамів. Усього в Україні виділяють чотири основні хвилі COVID-19, які мали різні масштаби та впливи.</p>
+<p>Перший спалах пандемії став найбільшим шоком для суспільства та економіки. Україна була не готовою до такого виклику. Зіткнувшись із новою хворобою, уряд швидко почав запроваджувати заходи для її стримування. 12 березня 2020 року в країні оголосили карантин, який згодом посилили:</p>
+<ul>
+<li>16 березня закрили прикордонні пункти пропуску, щоб обмежити міжнародні поїздки.</li>
+<li>18 березня заборонили пасажирські перевезення.</li>
+<li>6 квітня оголосили перший локдаун. Людям заборонили відвідувати парки, дитячі та спортивні майданчики, а також пересуватися вулицями групами більше ніж по дві особи. Пенсіонерам порадили залишатися вдома, а школи перейшли на дистанційне навчання<a href="https://ekmair.ukma.edu.ua/server/api/core/bitstreams/27c4a738-c011-4cbd-ad12-6a8e858ab052/content" class="ref-link"><sup>[12]</sup></a>.</li>
+</ul>
+<p>Перший локдаун мав серйозні наслідки для економіки, адже країна не була готова до масового переходу на онлайн-режим. Логістичні ланцюги були порушені, що вплинуло на багато галузей, включаючи туризм, ресторанний бізнес та сферу розваг. Ситуація ускладнювалася проблемами у системі охорони здоров&rsquo;я: браком діагностичних засобів, нестачею медичного обладнання та незнанням населення про правила поведінки під час карантину.</p>
+
+
+<div style="text-align: center;">
+    <img src="pictures/5_3.png" alt="Штами коронавірусу" style="width: 70%; margin-bottom: 5px;">
+    <p style="margin-top: 5px;"><em>Рис. 5 Кількість випадків зараження коронавірусом в Україні<a href="https://www.worldometers.info/coronavirus/country/ukraine/" class="ref-link"><sup>[19]</sup></a>&nbsp;</em></p>
+</div>
+<p>&nbsp;</p>
+
+<p>Перша хвиля (березень &ndash; червень 2020 року) COVID-19 була найменш масштабною за кількістю інфікованих, але мала серйозний вплив на економіку. На піку захворюваності кількість нових випадків не перевищувала 1000 осіб на день. Цей період став першим досвідом країни у боротьбі з пандемією<a href="https://ekmair.ukma.edu.ua/server/api/core/bitstreams/27c4a738-c011-4cbd-ad12-6a8e858ab052/content" class="ref-link"><sup>[12]</sup></a>.</p>
+<p>Друга хвиля (серпень 2020 року &ndash; лютий 2021 року) була значно масштабнішою: максимальна кількість нових випадків сягала 15 000 осіб на день. Саме в цей період країна відчула серйозний тиск на систему охорони здоров&rsquo;я, адже значно зросла потреба в госпіталізації хворих<a href="https://ekmair.ukma.edu.ua/server/api/core/bitstreams/27c4a738-c011-4cbd-ad12-6a8e858ab052/content" class="ref-link"><sup>[12]</sup></a>.</p>
+<p>Третя хвиля (лютий &ndash; червень 2021 року) була пов&rsquo;язана з появою нового штаму &ndash; &laquo;Дельта&raquo;. Цей варіант вірусу мав тяжчий перебіг хвороби та більше ускладнень. На піку хвилі кількість випадків досягала 20 000 на день. Зростання захворюваності створило серйозні виклики для медичної системи через значну кількість госпіталізацій<a href="https://ekmair.ukma.edu.ua/server/api/core/bitstreams/27c4a738-c011-4cbd-ad12-6a8e858ab052/content" class="ref-link"><sup>[12]</sup></a>.</p>
+<p>Четверта хвиля (жовтень 2021 року &ndash; січень 2022 року) Після короткого літнього спаду, зумовленого сезонними факторами (ультрафіолет, температура), вакцинацією та частковим колективним імунітетом, у жовтні 2021 року розпочалася четверта хвиля. Вона була наймасштабнішою: максимальна кількість випадків за день сягала 25 000 осіб. Проте вплив вакцинації почав проявлятися &ndash; тяжкість перебігу хвороби у вакцинованих була значно меншою<a href="https://ekmair.ukma.edu.ua/server/api/core/bitstreams/27c4a738-c011-4cbd-ad12-6a8e858ab052/content" class="ref-link"><sup>[12]</sup></a>.</p>
+<p>Можлива і п&rsquo;ята хвиля, так як на початку 2022 року з&rsquo;явилися ознаки змішаної хвилі, викликаної штамами &laquo;Дельта&raquo; та &laquo;Омікрон&raquo;. &laquo;Омікрон&raquo; був дуже заразним, але мав легший перебіг. Через початок війни достовірні дані про кількість заражених зібрати було неможливо<a href="https://ekmair.ukma.edu.ua/server/api/core/bitstreams/27c4a738-c011-4cbd-ad12-6a8e858ab052/content" class="ref-link"><sup>[12]</sup></a>.</p>
+</body>
+</html>

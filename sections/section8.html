@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест на знання COVID-19</title>
+    <style>
+        /* Контейнер тесту з адаптивною шириною */
+        .test-container {
+            width: 100%;
+            max-width: calc(100vw - 40px);
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Стилі заголовка */
+        h2 {
+            margin-top: 1em;
+            margin-bottom: 3em;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            text-align: center;
+        }
+
+        /* Стилі блоку питання */
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Текст питання */
+        .question p {
+            font-size: inherit;
+            margin-bottom: 15px;
+        }
+
+        /* Контейнер варіантів відповідей */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        /* Стилі кнопки-варіанту */
+        .option {
+            padding: 10px 15px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-size: inherit;
+            font-family: inherit;
+        }
+
+        /* Hover-ефект для варіантів відповідей */
+        .option:hover:not(.correct):not(.incorrect):not([disabled]) {
+            background: #e0e0e0;
+        }
+
+        /* Стилі правильної відповіді */
+        .correct {
+            background: #4CAF50 !important;
+            color: white;
+        }
+
+        /* Стилі неправильної відповіді */
+        .incorrect {
+            background: #f44336 !important;
+            color: white;
+        }
+
+        /* Блок результатів */
+        .results {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            display: none;
+            width: 100%;
+        }
+
+        /* Стилі кнопок */
+        button#showResults, button#retryTest {
+            padding: 10px 20px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-size: inherit;
+        }
+
+        /* Hover-ефект для кнопок */
+        button#showResults:hover, button#retryTest:hover {
+            background: #1976D2;
+        }
+
+        /* Глобальні стилі */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Основний контент */
+        main {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Універсальні налаштування */
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- Контейнер тесту -->
+    <div class="test-container">
+        <h2><strong>Тест на обізнаність щодо COVID-19</strong></h2>
+        <!-- Контейнер для питань -->
+        <div id="questions"></div>
+        
+        <!-- Кнопка перевірки результатів -->
+        <div style="text-align: center;">
+            <button id="showResults" style="display: none;">Перевірити результат</button>
+        </div>
+        
+        <!-- Блок результатів -->
+        <div id="results" class="results">
+            <h3>Ваш результат: <span id="score">0</span> з 15</h3>
+            <button id="retryTest">Пройти ще раз</button>
+        </div>
+    </div>
+    <script>
+        const questions = [
+            {
+                text: "Який штам COVID-19 став основним у світі на початок 2023 року?",
+                options: ["Альфа", "Дельта", "Омікрон", "Бета"],
+                correct: 2
+            },
+            {
+                text: "Що забезпечує SARS-CoV-2 здатність проникати у клітини людини?",
+                options: ["N-протеїн", "S-протеїн", "M-протеїн", "Ліпідна мембрана"],
+                correct: 1
+            },
+            {
+                text: "Яким шляхом передається COVID-19?",
+                options: ["Через воду", "Повітряно-крапельним шляхом", "Через укуси комах", "Обидва варіанти a і b"],
+                correct: 1
+            },
+            {
+                text: "Що робить SARS-CoV-2 менш помітним для антитіл?",
+                options: ["S-протеїн", "Глікани на поверхні S-протеїну", "Ліпідна мембрана", "РНК вірусу"],
+                correct: 1
+            },
+            {
+                text: "Що є основною причиною ускладнень при COVID-19?",
+                options: ["Цитокіновий шторм", "Ураження нирок", "Брак кисню", "Слабка імунна відповідь"],
+                correct: 0
+            },
+            {
+                text: "Який білок визначає форму SARS-CoV-2 та допомагає йому проникати у клітину?",
+                options: ["N-протеїн", "E-протеїн", "S-протеїн", "M-протеїн"],
+                correct: 2
+            },
+            {
+                text: "Які заходи профілактики є найефективнішими?",
+                options: ["Маски та соціальна дистанція", "Регулярне миття рук", "Вакцинація", "Провітрювання приміщень"],
+                correct: 2
+            },
+            {
+                text: "Який симптом частіше зустрічається при штамі «Дельта», ніж при «Альфа»?",
+                options: ["Втрата нюху", "Нежить і біль у горлі", "Болі в животі", "Втрата зору"],
+                correct: 1
+            },
+            {
+                text: "Який орган найбільш вразливий до SARS-CoV-2?",
+                options: ["Серце", "Легені", "Печінка", "Кишечник"],
+                correct: 1
+            },
+            {
+                text: "Який штам COVID-19 мав найбільшу кількість мутацій?",
+                options: ["Гамма", "Бета", "Омікрон", "Альфа"],
+                correct: 2
+            },
+            {
+                text: "Який механізм використовують віруси для швидкої мутації та адаптації?",
+                options: ["Подвійна спіраль ДНК", "Рекомбінація генетичного матеріалу", "Вбудовування в геном людини", "Клонування клітин"],
+                correct: 1
+            },
+            {
+                text: "Який орган найбільше уражався при штамі «Омікрон»?",
+                options: ["Легені", "Верхні дихальні шляхи", "Печінка", "Головний мозок"],
+                correct: 1
+            },
+            {
+                text: "Який фактор найбільше сприяв швидкому поширенню COVID-19 у світі?",
+                options: ["Зміни клімату", "Авіаперельоти та глобалізація", "Високий рівень забруднення повітря", "Недостатня кількість медичних працівників"],
+                correct: 1
+            },
+            {
+                text: "Який із заходів є найефективнішим для зниження ризику зараження у приміщенні?",
+                options: ["Використання антисептиків для рук", "Провітрювання та фільтрація повітря", "Використання ультразвукових зволожувачів", "Вживання вітаміну С"],
+                correct: 1
+            },
+            {
+                text: "Який метод діагностики використовується для виявлення SARS-CoV-2 у зразках пацієнтів?",
+                options: ["УЗД", "ПЛР-тест", "Рентгенографія", "Аналіз крові на рівень глюкози"],
+                correct: 1
+            }
+        ];
+
+        // Ключ для localStorage та час останнього оновлення
+        const TEST_STATE_KEY = 'covid_test_state';
+        const LAST_RELOAD_KEY = 'last_test_reload';
+
+        // Функція для завантаження стану тесту з локального сховища
+        function loadTestState() {
+            // Отримання збереженого стану
+            const savedState = localStorage.getItem(TEST_STATE_KEY);
+            const lastReload = localStorage.getItem(LAST_RELOAD_KEY);
+            const currentReload = new Date().getTime();
+
+            // Очищення стану при перезавантаженні сторінки
+            if (!lastReload || currentReload - parseInt(lastReload) > 1000) {
+                testState = {
+                    score: 0,
+                    answeredQuestions: 0,
+                    answers: [],
+                    showingResults: false
+                };
+                localStorage.setItem(LAST_RELOAD_KEY, currentReload.toString());
+                saveTestState();
+            } else if (savedState) {
+                // Відновлення попереднього стану
+                testState = JSON.parse(savedState);
+            } else {
+                // Встановлення стану за замовчуванням
+                testState = {
+                    score: 0,
+                    answeredQuestions: 0,
+                    answers: [],
+                    showingResults: false
+                };
+            }
+        }
+
+        // Функція для збереження стану тесту в локальне сховище
+        function saveTestState() {
+            localStorage.setItem(TEST_STATE_KEY, JSON.stringify(testState));
+        }
+
+        // Початковий стан тесту
+        let testState = {
+            score: 0,
+            answeredQuestions: 0,
+            answers: [],
+            showingResults: false
+        };
+
+        // Функція створення тесту
+        function createTest() {
+            // Завантаження збереженого стану
+            loadTestState();
+
+            // Очищення контейнера питань
+            const container = document.getElementById('questions');
+            container.innerHTML = '';
+
+            // Створення питань
+            questions.forEach((question, qIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                // Створення тексту питання
+                const questionText = document.createElement('p');
+                const questionTextId = `question_text_${qIndex}_${Math.random()}`;
+                questionText.setAttribute('data-size-id', questionTextId);
+                questionText.textContent = `${qIndex + 1}. ${question.text}`;
+                baseTextSizes[questionTextId] = 16;
+                questionDiv.appendChild(questionText);
+                
+                // Створення контейнера варіантів відповідей
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+                
+                // Додавання варіантів відповідей
+                question.options.forEach((option, oIndex) => {
+                    const button = document.createElement('button');
+                    button.className = 'option';
+                    
+                    const optionId = `option_${qIndex}_${oIndex}_${Math.random()}`;
+                    button.setAttribute('data-size-id', optionId);
+                    
+                    // Літери для позначення варіантів
+                    const letters = ['а', 'б', 'в', 'г'];
+                    button.textContent = `${letters[oIndex]}) ${option}`;
+                    
+                    baseTextSizes[optionId] = 16;
+                    
+                    // Встановлення стану кнопок відповідно до збереженого результату
+                    if (testState.answers[qIndex] !== undefined) {
+                        button.disabled = true;
+                        if (oIndex === testState.answers[qIndex]) {
+                            if (oIndex === question.correct) {
+                                button.classList.add('correct');
+                            } else {
+                                button.classList.add('incorrect');
+                            }
+                        } else if (oIndex === question.correct) {
+                            button.classList.add('correct');
+                        }
+                    }
+                    
+                    // Обробник кліку на варіант відповіді
+                    button.onclick = function() {
+                        if (!this.disabled) {
+                            // Блокування інших варіантів
+                            const options = optionsDiv.getElementsByClassName('option');
+                            Array.from(options).forEach(opt => {
+                                opt.disabled = true;
+                            });
+
+                            // Оновлення стану тесту
+                            testState.answers[qIndex] = oIndex;
+
+                            // Перевірка правильності відповіді
+                            if (oIndex === question.correct) {
+                                this.classList.add('correct');
+                                testState.score++;
+                            } else {
+                                this.classList.add('incorrect');
+                                options[question.correct].classList.add('correct');
+                            }
+
+                            // Підрахунок відповіджених питань
+                            testState.answeredQuestions++;
+                            if (testState.answeredQuestions === questions.length) {
+                                document.getElementById('showResults').style.display = 'inline-block';
+                            }
+                            
+                            // Збереження стану
+                            saveTestState();
+                            testContent = mainContent.innerHTML;
+                        }
+                    };
+                    
+                    optionsDiv.appendChild(button);
+                });
+                
+                questionDiv.appendChild(optionsDiv);
+                container.appendChild(questionDiv);
+            });
+
+            // Відображення результатів, якщо тест вже пройдено
+            if (testState.showingResults) {
+                document.getElementById('showResults').style.display = 'none';
+                document.getElementById('score').textContent = testState.score;
+                document.getElementById('results').style.display = 'block';
+            } else if (testState.answeredQuestions === questions.length) {
+                document.getElementById('showResults').style.display = 'inline-block';
+            }
+
+            updateTextSize();
+
+            setTimeout(() => {
+                testContent = mainContent.innerHTML;
+            }, 100);
+        }
+
+        // Обробник кліку на кнопку "Перевірити результат"
+        document.getElementById('showResults').onclick = function() {
+            // Приховування кнопки перевірки
+            this.style.display = 'none';
+            
+            // Відображення набраних балів
+            document.getElementById('score').textContent = testState.score;
+            document.getElementById('results').style.display = 'block';
+            
+            // Оновлення стану тесту
+            testState.showingResults = true;
+            saveTestState();
+            testContent = mainContent.innerHTML;
+        };
+
+        // Обробник кліку на кнопку "Пройти ще раз"
+        document.getElementById('retryTest').onclick = function() {
+            // Скидання стану тесту
+            testState = {
+                score: 0,
+                answeredQuestions: 0,
+                answers: [],
+                showingResults: false
+            };
+            
+            // Оновлення часу останнього перезавантаження
+            localStorage.setItem(LAST_RELOAD_KEY, new Date().getTime().toString());
+            saveTestState();
+            
+            // Приховування блоку результатів
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('showResults').style.display = 'none';
+            
+            // Створення нового тесту
+            createTest();
+            testContent = mainContent.innerHTML;
+        };
+
+        // Створення тесту при завантаженні сторінки
+        createTest();
+
+        // Очищення локального сховища перед закриттям сторінки
+        window.addEventListener('beforeunload', function() {
+            localStorage.removeItem(TEST_STATE_KEY);
+            localStorage.removeItem(LAST_RELOAD_KEY);
+        });
+
+        // Збереження початкових розмірів тексту після завантаження сторінки
+        window.addEventListener('load', function() {
+            if (typeof saveInitialTextSizes === 'function') {
+                saveInitialTextSizes();
+            }
+        });
+    </script>
+</body>
+</html>

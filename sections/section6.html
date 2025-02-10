@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розділ 1: Загальна інформація</title>
+
+    <style>
+        /* Задаємо стилі для body та html */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Стилі для main */
+        main {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Загальні стилі для всіх елементів */
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        h2 {
+            margin-top: 1em;
+            margin-bottom: 3em; 
+        }
+
+        /* Встановлення властивостей для виправлення ширини */
+        body, main {
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        p:first-of-type {
+            margin-top: 3em;
+            line-height: 1.5;
+        }
+        
+        /* Контейнер для двох колонок */
+        .container {
+            display: flex;
+            width: 100%;
+            height: auto;
+            padding: 0;  /* Прибрали padding */
+            gap: 20px;
+            overflow-x: auto;
+            margin: 3em 0;  /* Збільшили margin для однакової відстані */
+        }
+
+        /* Ліва частина */
+        .left {
+            flex: 1;
+            max-width: 50%;
+            padding: 0; /* Прибрали padding */
+        }
+
+        .left img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .left p {
+            margin-top: 20px;
+            margin-bottom: 10px; /* Було 30px, зменшено на 20px */
+            text-align: center;
+        }
+
+        /* Права частина */
+        .right {
+            flex: 1;
+            max-width: 50%;
+            text-align: justify;
+            padding: 0; /* Прибрали padding */
+        }
+
+        .right p {
+            margin-top: 0;
+        }
+
+        /* Стилі для списку */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Стилі для посилань */
+        .ref-link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .ref-link:hover {
+            text-decoration: underline;
+        }
+
+        .ref-link:visited {
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <h2 style="text-align: center;"><strong>Поширення короновірусної інфекції в Дніпропетровській області</strong></h2>
+<p>Перший випадок появи коронавірусної хвороби було виявлено на території Дніпропетровської області 19 березня 2020 року. Станом на 18 вересня 2022 зафіксовано 319171 випадків інфікування, що становить 10,32% від населення області.<a href="https://index.minfin.com.ua/ua/reference/coronavirus/ukraine/?utm_source.com" class="ref-link"><sup>[14]</sup></a></p>
+
+<div style="text-align: center;">
+    <img src="pictures/6.png" alt="Штами коронавірусу" style="width: 70%; margin-bottom: 5px;">
+    <p style="margin-top: 5px;"><em>Всього інфіковано осіб по областях України на 18.09.2022<a href="https://index.minfin.com.ua/ua/reference/coronavirus/ukraine/?utm_source.com" class="ref-link"><sup>[14]</sup></a></em></p>
+</div>
+<p>&nbsp;</p>
+
+<p>У вересні 2023 року спостерігалося зростання захворюваності на коронавірус: за тиждень було зареєстровано 400 нових випадків, що вдвічі більше порівняно з попередніми періодами.<a href="https://suspilne.media/dnipro/578647-zahvoruvanist-na-covid-19-v-oblasti-zrosla-vdvici-dnipropetrovskij-oblasnij-centr-kontrolu-i-profilaktiki-hvorob/" class="ref-link"><sup>[15]</sup></a></p>
+<p>У січні 2024 року рівень захворюваності на COVID-19 та ГРВІ в області зріс на 9%, з 9 570 випадками ГРВІ за тиждень, з яких понад 6% припадали на COVID-19.<a href="https://suspilne.media/dnipro/672240-na-dnipropetrovsini-za-tizden-cetvero-ludej-pomerli-vid-covid-19-aka-zahvoruvanist-na-grip-ta-grvi-v-regioni/" class="ref-link"><sup>[16]</sup></a></p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Coronavirus_info_site</title>
+   <link rel="icon" href="pictures/virus.png" type="image/png">
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div class="header-bar">
+       <div class="logo" style="background-image: url('pictures/banking-system.png');"></div>
+
+       <div class="text-size-controls">
+           <div class="text-icon"></div>
+           <button id="increaseTextSize" class="icon-plus"></button>
+           <button id="decreaseTextSize" class="icon-minus"></button>
+       </div>
+
+       <div class="right-section">
+           <div class="icon" style="background-image: url('pictures/virus.png');"></div>
+           <div class="search-box">
+                <input type="text" placeholder="🔍︎ Пошук" id="searchInput">
+                <div id="searchResults" class="search-results"></div>
+            </div>       
+       </div>
+   </div>
+
+   <div class="page">
+       <div class="menu" id="menu">
+            <div class="menu-content">
+                <div class="title">
+                    <p class="header">Дніпровський науковий ліцей інформаційних технологій дніпровської міської ради (ДНЛІТ ДМР)</p>
+                </div>
+                <div class="theme">
+                    <h2>Тема: "Порівняльний аналіз найпоширеніших штамів COVID-19.</h2>
+                    <h2>Розробка інформаційного сайту про COVID-19."</h2>
+                </div>
+                <div class="author">
+                    <p>Виконала:<br>
+                    Ліцеїстка 11-А класу<br>
+                    Тищенко Анна Дмитрівна<br>
+                    Керівники:<br>
+                    Бережна Тетяна Дмитрівна, вчитель біології, методист<br>
+                    Боровик Людмила Іванівна, вчитель ІТ</p> 
+                </div>
+                <div class="footer">
+                    <p>2025</p>
+                </div>
+                <div class="arrow-icon" id="startButton"></div>
+            </div>
+       </div>
+
+       <div class="content" id="mainContent">
+           <div class="scrollable-content" id="scrollableContent">
+           </div>
+       </div>
+   </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
